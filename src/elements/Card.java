@@ -1,5 +1,5 @@
-
-/* Card object
+package elements;
+/* elements.Card object
  Author: Vaidas Vaitkevicius
  Date: 11/10/2018
  */
@@ -11,13 +11,13 @@ public class Card {
 
 
     /**
-     * Card constructor
+     * elements.Card constructor
      *
      * @param name name of a card (e.g. 2h which evaluates to: two of hearts)
      */
     public Card (String name) {
         String[] parts = name.split("");
-        this.identifier = parts[0s];
+        this.identifier = parts[0];
         this.suit = parts[1];
     }
 

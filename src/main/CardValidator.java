@@ -1,8 +1,10 @@
-
-/* Card validator - checks for valid cards
+package main;
+/* elements.Card validator - checks for valid cards
  Author: Vaidas Vaitkevicius
  Date: 11/10/2018
  */
+
+import elements.Card;
 
 import java.util.ArrayList;
 
