@@ -8,7 +8,7 @@ The game can be played between one player and dealer (computer) through 'main' c
 + Supported player actions: hit, stand
 + Player has a money balance
 + Game-flow:
-⋅⋅⋅ Player enters a stake/wager (through console)
+... Player enters a stake/wager (through console)
 ⋅⋅⋅ Player and dealer are dealt cards. Cards are dealt to the GamePlayers in this order: player, dealer, player
 ⋅⋅⋅ Player chooses their action (hit/stand)
 ⋅⋅⋅ Action Hit: player is dealt a card, and asked to choose next action
