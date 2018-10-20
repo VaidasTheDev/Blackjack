@@ -1,6 +1,6 @@
 # Blackjack
 
-## Version 1.0
+## Version 0.1
 The game can be played between one player and dealer (computer) through 'main' console.
 
 > ### Functionalities
