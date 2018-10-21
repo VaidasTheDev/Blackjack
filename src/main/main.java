@@ -8,12 +8,12 @@ import java.util.Scanner;
 public class main {
 
     public static void main (String[] args) {
-        ActionValidator actionValidator = new ActionValidator();
+        /*ActionValidator actionValidator = new ActionValidator();
         RewardCalculator rewards = new RewardCalculator();
         Scanner scanner = new Scanner(System.in);
         DbHandler dbHandler = new DbHandler();
 
-        /*while (true) {
+        while (true) {
             System.out.println("=== Enter a card ===");
             elements.Card c = new elements.Card(scanner.nextLine());
             int validResult = validator.isCardValid(c);
@@ -25,11 +25,12 @@ public class main {
                 System.out.println("Your card is: " + c.getId() + c.getSuit());
                 System.out.println("Validation result: invalid");
             }
-        }*/
+        }
 
         Game game = new Game();
         Player p = new Player("Vaidas", 5000f);
         game.addPlayer(p);
+
         while (true) {
             System.out.println("\n************************************************\n");
             System.out.println("Your current balance is: " + p.getBalance());
@@ -67,6 +68,9 @@ public class main {
             }
 
             rewards.processWinnings(game.getDealer(), game.getPlayers());
-        }
+
+
+            // load up welcome screen
+        }*/
     }
 }

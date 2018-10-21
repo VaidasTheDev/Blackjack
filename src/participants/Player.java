@@ -18,7 +18,7 @@ public class Player extends GamePlayer {
      * @param name participants.Player's name
      * @param balance participants.Player's initial balance
      */
-    public Player(String name, Float balance) {
+    public Player(String name, String username, String password, Float balance) {
         super();
         this.name = name;
         this.balance = balance;

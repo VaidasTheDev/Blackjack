@@ -4,6 +4,7 @@ import participants.Player;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DbHandler {
@@ -36,7 +37,7 @@ public class DbHandler {
         if (this.c != null) {
             try {
                 Statement stmt = c.createStatement();
-                String sql = "INSERT INTO users " +
+                String query = "INSERT INTO users " +
                         "(name,username,password,balance) " +
                         "VALUES (" +
                         "'" + p.getName() + "'," +
@@ -44,8 +45,7 @@ public class DbHandler {
                         "'" + p.getPassword() + "'," +
                         p.getBalance() +
                         ");";
-                System.out.println(sql);
-                stmt.executeUpdate(sql);
+                stmt.executeUpdate(query);
                 stmt.close();
             } catch (Exception e) {
                 System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -54,6 +54,34 @@ public class DbHandler {
             System.out.println("Database: username " + p.getUsername() + " has been registered");
         } else {
             System.err.println("Database Error: connection isn't established");
+        }
+    }
+
+    public Player getPlayer(String username, String password) {
+        if (this.c != null) {
+            try {
+                Statement stmt = c.createStatement();
+                String query = "SELECT name, balance " +
+                        "FROM users" +
+                        "WHERE username = " + username +
+                        "AND password = " + password;
+                ResultSet rs = stmt.executeQuery(query);
+                if (rs.next()) {
+                    // user exists, check password
+                    final Player p = new Player(rs.getString("name"), username, password, rs.getFloat("balance"));
+                    return p;
+                } else {
+                    // user doesn't exist OR password is incorrect
+                    return null;
+                }
+            } catch (Exception e) {
+                System.err.println(e.getClass().getName() + ": " + e.getMessage());
+                System.exit(0);
+                return null;
+            }
+        } else {
+            System.err.println("Database Error: connection isn't established");
+            return null;
         }
     }
 }
