@@ -20,7 +20,6 @@ public class DbHandler {
             c = DriverManager
                     .getConnection("jdbc:postgresql://localhost:8000/blackjack",
                             "postgres", "admin");
-            c.close();
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName() + ": " + e.getMessage());
@@ -61,17 +60,20 @@ public class DbHandler {
         if (this.c != null) {
             try {
                 Statement stmt = c.createStatement();
-                String query = "SELECT name, balance " +
-                        "FROM users" +
-                        "WHERE username = " + username +
-                        "AND password = " + password;
+                String query = "SELECT name,balance " +
+                        "FROM users " +
+                        "WHERE username = '" + username + "' " +
+                        "AND password = '" + password + "'" +
+                        ";";
                 ResultSet rs = stmt.executeQuery(query);
                 if (rs.next()) {
                     // user exists, check password
-                    final Player p = new Player(rs.getString("name"), username, password, rs.getFloat("balance"));
+                    final Player p = new Player(rs.getString("name").trim(), username, password, rs.getFloat("balance"));
+                    stmt.close();
                     return p;
                 } else {
                     // user doesn't exist OR password is incorrect
+                    stmt.close();
                     return null;
                 }
             } catch (Exception e) {

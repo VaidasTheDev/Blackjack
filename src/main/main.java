@@ -1,6 +1,8 @@
 package main;
 
 import database.DbHandler;
+import frontend.Initial;
+import javafx.application.Application;
 import participants.Player;
 
 import java.util.Scanner;
@@ -68,9 +70,8 @@ public class main {
             }
 
             rewards.processWinnings(game.getDealer(), game.getPlayers());
-
-
-            // load up welcome screen
         }*/
+        // load up welcome screen
+        Application.launch(Initial.class, args);
     }
 }
