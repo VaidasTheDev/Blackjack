@@ -19,7 +19,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class main extends Application {
+public class initial extends Application {
 
     @Override
     public void start(Stage primaryStage) {
