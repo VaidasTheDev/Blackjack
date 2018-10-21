@@ -1,5 +1,6 @@
 package main;
 
+import database.DbHandler;
 import participants.Player;
 
 import java.util.Scanner;
@@ -10,6 +11,7 @@ public class main {
         ActionValidator actionValidator = new ActionValidator();
         RewardCalculator rewards = new RewardCalculator();
         Scanner scanner = new Scanner(System.in);
+        DbHandler dbHandler = new DbHandler();
 
         /*while (true) {
             System.out.println("=== Enter a card ===");
