@@ -7,6 +7,8 @@ package participants;
 public class Player extends GamePlayer {
 
     private String name;
+    private String username;
+    private String password;
     private Float balance;
     private Float stake;
 
@@ -16,7 +18,7 @@ public class Player extends GamePlayer {
      * @param name participants.Player's name
      * @param balance participants.Player's initial balance
      */
-    public Player(String name, Float balance) {
+    public Player(String name, String username, String password, Float balance) {
         super();
         this.name = name;
         this.balance = balance;
@@ -41,16 +43,44 @@ public class Player extends GamePlayer {
         return this.balance;
     }
 
+    /**
+     * Sets player's stake for the upcoming game
+     * @param stake stake
+     */
     public void setStake(Float stake) {
         this.stake = stake;
         this.updateBalance(-stake);
     }
 
+    /**
+     * Retrieves player's stake (wager)
+     * @return stake
+     */
     public Float getStake() {
         return this.stake;
     }
 
+    /**
+     * Retrieves player's name
+     * @return name
+     */
     public String getName() {
         return this.name;
+    }
+
+    /**
+     * Retrieves player's username
+     * @return username
+     */
+    public String getUsername() {
+        return this.username;
+    }
+
+    /**
+     * Retrieves player's password
+     * @return password
+     */
+    public String getPassword() {
+        return this.password;
     }
 }
